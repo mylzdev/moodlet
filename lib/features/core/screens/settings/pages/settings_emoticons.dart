@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moodlet/utils/helpers/helper_functions.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/shapes/container/card_container.dart';
 import '../../../controllers/settings_controllers/settings_controller.dart';
@@ -60,7 +61,9 @@ class TSettingsEmoticons extends StatelessWidget {
                                     color: controller.selectedEmoticons.value ==
                                             moodListIndex
                                         ? TColors.black
-                                        : TColors.white,
+                                        : THelperFunctions.isDarkMode(context)
+                                            ? TColors.white
+                                            : TColors.black,
                                   ),
                             ),
                           ],

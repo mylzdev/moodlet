@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:moodlet/common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/shapes/container/card_container.dart';
 import '../../../../common/widgets/list_tile/settings_tile.dart';
 import '../../controllers/settings_controllers/settings_controller.dart';
@@ -24,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
     final isDark = THelperFunctions.isDarkMode(context);
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
+      appBar: TAppbar(
         centerTitle: true,
         title: Text(
           'Settings',

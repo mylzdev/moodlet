@@ -51,6 +51,16 @@ class TFloatingActionButton extends StatelessWidget {
       children: [
         TActionBarItem(
           bgColor: bgColor,
+          text: 'Today',
+          icon: Iconsax.clock,
+          onPressed: () {
+            DateTime today = DateTime.now();
+            moodController.createdAt.value = today;
+            Get.to(() => const MoodScreen(), transition: Transition.downToUp);
+          },
+        ),
+        TActionBarItem(
+          bgColor: bgColor,
           text: 'Yesterday',
           icon: Iconsax.arrow_left,
           onPressed: () {
@@ -65,19 +75,10 @@ class TFloatingActionButton extends StatelessWidget {
         ),
         TActionBarItem(
           bgColor: bgColor,
-          text: 'Today',
-          icon: Iconsax.clock,
-          onPressed: () {
-            DateTime today = DateTime.now();
-            moodController.createdAt.value = today;
-            Get.to(() => const MoodScreen(), transition: Transition.downToUp);
-          },
-        ),
-        TActionBarItem(
-          bgColor: bgColor,
           text: 'Other Day',
           icon: Iconsax.calendar,
-          onPressed: () async => navigationController.showDatePicker(DateTime.now()),
+          onPressed: () async =>
+              navigationController.showDatePicker(DateTime.now()),
         ),
       ],
     );
