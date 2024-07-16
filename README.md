@@ -31,7 +31,7 @@ Please read our [contributing guidelines](CONTRIBUTING.md) to learn how you can 
 
 ## License
 
-Habo is released under the [MIT-License](LICENSE). Feel free to use, modify, and distribute it as you wish. 
+Moodlet is released under the [MIT-License](LICENSE). Feel free to use, modify, and distribute it as you wish. 
 
 ## Acknowledgments
 
