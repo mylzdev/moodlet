@@ -22,6 +22,10 @@ It is built using the [Flutter](https://flutter.dev/) framework, a popular and p
 - Filter mood entries by various categories
 - Plus, much more!
 
+## Supported Platform
+
+- Android
+- iOS (Comming Soon. You may contribute)
 
 ## Contributing
 
