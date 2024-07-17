@@ -64,6 +64,7 @@ dependencies:
   confetti: ^0.7.0
   tutorial_coach_mark: ^1.2.11
   flutter_expandable_fab: ^2.1.0
+  rename: ^3.0.2
 
 dev_dependencies:
   flutter_test:
