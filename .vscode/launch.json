@@ -16,10 +16,10 @@
             "flutterMode": "debug"
         },
         {
-            "name": "moodlet (debug mode)",
+            "name": "moodlet (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "debug"
+            "flutterMode": "release"
         }
     ]
 }
