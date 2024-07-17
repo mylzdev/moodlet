@@ -22,6 +22,27 @@ It is built using the [Flutter](https://flutter.dev/) framework, a popular and p
 - Filter mood entries by various categories
 - Plus, much more!
 
+## Getting Started
+
+### Installation
+
+1. Clone the repository from GitHub:
+
+```bash
+git clone https://github.com/mylzdev/moodlet.git
+```
+
+2. Get all dependencies:
+```bash
+flutter pub get
+```
+
+3. Run the app:
+
+```bash
+flutter run
+```
+
 ## Supported Platform
 
 - Android
