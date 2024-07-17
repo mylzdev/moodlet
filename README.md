@@ -22,6 +22,31 @@ It is built using the [Flutter](https://flutter.dev/) framework, a popular and p
 - Filter mood entries by various categories
 - Plus, much more!
 
+## Getting Started
+
+### Installation
+
+1. Clone the repository from GitHub:
+
+```bash
+git clone https://github.com/mylzdev/moodlet.git
+```
+
+2. Get all dependencies:
+```bash
+flutter pub get
+```
+
+3. Run the app:
+
+```bash
+flutter run
+```
+
+## Supported Platform
+
+- Android
+- iOS (Comming Soon. You may contribute)
 
 ## Contributing
 
@@ -31,7 +56,7 @@ Please read our [contributing guidelines](CONTRIBUTING.md) to learn how you can 
 
 ## License
 
-Habo is released under the [MIT-License](LICENSE). Feel free to use, modify, and distribute it as you wish. 
+Moodlet is released under the [MIT-License](LICENSE). Feel free to use, modify, and distribute it as you wish. 
 
 ## Acknowledgments
 
