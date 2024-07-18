@@ -20,6 +20,7 @@ It is built using the [Flutter](https://flutter.dev/) framework, a popular and p
 - Monitor your progress with detailed statistics
 - Visualize your moods on a calendar
 - Filter mood entries by various categories
+- Light & Dark Theme
 - Plus, much more!
 
 ## Getting Started
