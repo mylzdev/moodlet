@@ -13,20 +13,18 @@ class NavigationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(TutorialController());
     final navigationController = NavigationController.instance;
     final moodController = MoodController.instance;
-    final tutorialController = Get.put(TutorialController(), permanent: true);
     return Scaffold(
       extendBody: true,
       floatingActionButton: TFloatingActionButton(
         moodController: moodController,
         navigationController: navigationController,
-        tutorialController: tutorialController,
       ),
       floatingActionButtonLocation: ExpandableFab.location,
       bottomNavigationBar: TBottomNavBar(
         navigationController: navigationController,
-        tutorialController: tutorialController,
       ),
       // Navigation Body
       body: Obx(() =>

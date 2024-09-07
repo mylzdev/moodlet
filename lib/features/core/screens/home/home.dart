@@ -1,12 +1,12 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moodlet/features/core/screens/home/widgets/home_appbar.dart';
 
 import '../../controllers/home_controller.dart';
 import '../../controllers/mood_controller.dart';
 import '../../controllers/quote_controller.dart';
 import '../../controllers/tutorial_controller.dart';
-import 'widgets/home_appbar.dart';
 import 'widgets/home_back_to_top.dart';
 import 'widgets/home_body.dart';
 import 'widgets/home_quote.dart';
@@ -22,7 +22,6 @@ class HomeScreen extends StatelessWidget {
     final tutorialController = TutorialController.instance;
     return Scaffold(
       appBar: THomeAppbar(
-        tutorialController: tutorialController,
         homeController: homeController,
         moodController: moodController,
       ),

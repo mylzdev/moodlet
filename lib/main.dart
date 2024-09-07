@@ -21,15 +21,19 @@ void main() async {
   // Initialize local storage
   await GetStorage.init();
 
+  // Set user's preferences and settings
   Get.put(SettingsController());
 
+  // Initializate notification serivce provided by AwesomeNotification
   await NotificationService.initializeNotification();
 
+  // Set preferred orientation - Should only be portraitUp
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+  // Initialize firebase
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Injects the [UserController], which will manage the user authentication and profile-related tasks.
   Get.put(UserController());
 
   runApp(const Moodlet());

@@ -3,26 +3,27 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:moodlet/utils/constants/local_storage_key.dart';
-import 'settings_controllers/settings_controller.dart';
-import 'statistic_controller.dart';
-import '../screens/mood_details/mood_details.dart';
-import '../../../utils/logging/logger.dart';
 import 'package:progressive_time_picker/progressive_time_picker.dart';
-import '../models/mood_model/mood_model.dart';
+
 import '../../../data/respositories/mood_repository.dart';
 import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/local_storage_key.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/device/device_utility.dart';
 import '../../../utils/formatters/formatter.dart';
 import '../../../utils/helpers/helper_functions.dart';
+import '../../../utils/logging/logger.dart';
 import '../../../utils/popups/popups.dart';
 import '../models/activities_model/activities_model.dart';
 import '../models/emotion_model/emotion_model.dart';
 import '../models/mood_model/mood_choice_model.dart';
+import '../models/mood_model/mood_model.dart';
 import '../screens/bottom_nav/navigation_menu.dart';
+import '../screens/mood_details/mood_details.dart';
 import '../screens/mood_details/widgets/mood_details_sleep/mood_details_sleep_time_picker.dart';
+import 'settings_controllers/settings_controller.dart';
+import 'statistic_controller.dart';
 
 class MoodController extends GetxController {
   static MoodController get instance => Get.find();
@@ -170,7 +171,7 @@ class MoodController extends GetxController {
       await _moodRepository.insertMood(moodData);
 
       // Refresh data database
-      fetchAllMoods();
+      await fetchAllMoods();
 
       // Refresh mood counts
       _statsController
@@ -199,7 +200,7 @@ class MoodController extends GetxController {
 
       await _moodRepository.updateMood(moodData);
 
-      fetchAllMoods();
+      await fetchAllMoods();
 
       _statsController
           .getMoodCountsByDate(_statsController.selectedMonthYear.value);

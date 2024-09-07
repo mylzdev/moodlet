@@ -1,12 +1,13 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moodlet/features/core/controllers/settings_controllers/settings_controller.dart';
-import '../../../controllers/statistic_controller.dart';
+
+import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
-import '../../../../../utils/constants/colors.dart';
+import '../../../controllers/settings_controllers/settings_controller.dart';
+import '../../../controllers/statistic_controller.dart';
 
 class TStatsChart extends StatelessWidget {
   const TStatsChart({super.key});

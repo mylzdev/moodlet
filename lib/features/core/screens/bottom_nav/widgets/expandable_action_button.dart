@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:moodlet/features/core/controllers/tutorial_controller.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../controllers/mood_controller.dart';
 import '../../../controllers/navigation_controller.dart';
+import '../../../controllers/tutorial_controller.dart';
 import '../../mood/mood.dart';
 import 'action_bar_item.dart';
 
@@ -16,12 +16,10 @@ class TFloatingActionButton extends StatelessWidget {
     super.key,
     required this.moodController,
     required this.navigationController,
-    required this.tutorialController,
   });
 
   final MoodController moodController;
   final NavigationController navigationController;
-  final TutorialController tutorialController;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,7 @@ class TFloatingActionButton extends StatelessWidget {
       openButtonBuilder: RotateFloatingActionButtonBuilder(
         backgroundColor: TColors.primary,
         child: Icon(
-            key: tutorialController.addMoodKey,
+            key: TutorialController.instance.addMoodKey,
             Iconsax.add,
             color: Colors.white),
       ),

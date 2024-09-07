@@ -2,13 +2,14 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:moodlet/common/widgets/shapes/container/card_container.dart';
-import 'package:moodlet/features/core/controllers/navigation_controller.dart';
-import 'package:moodlet/utils/constants/local_storage_key.dart';
-import 'package:moodlet/utils/constants/sizes.dart';
-import 'package:moodlet/utils/logging/logger.dart';
-import 'package:moodlet/utils/popups/popups.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
+
+import '../../../common/widgets/shapes/container/card_container.dart';
+import '../../../utils/constants/local_storage_key.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/logging/logger.dart';
+import '../../../utils/popups/popups.dart';
+import 'navigation_controller.dart';
 
 class TutorialController extends GetxController {
   static TutorialController get instance => Get.find();
@@ -22,13 +23,16 @@ class TutorialController extends GetxController {
   List<TargetFocus> targets = [];
 
   // Global Keys
-  final addMoodKey = GlobalKey();
-  final entriesKey = GlobalKey();
-  final statisticKey = GlobalKey();
-  final calendaryKey = GlobalKey();
-  final settingsKey = GlobalKey();
-  final filterKey = GlobalKey();
-  final refreshKey = GlobalKey();
+  final GlobalKey addMoodKey = GlobalKey();
+  final GlobalKey entriesKey = GlobalKey();
+  final GlobalKey statisticKey = GlobalKey();
+  final GlobalKey calendaryKey = GlobalKey();
+  final GlobalKey settingsKey = GlobalKey();
+  final GlobalKey filterKey = GlobalKey();
+  final GlobalKey refreshKey = GlobalKey();
+
+  bool get isTutorialDone =>
+      _localStorage.read(TLocalStorageKey.isTutorialDone);
 
   @override
   void onInit() async {
@@ -36,8 +40,6 @@ class TutorialController extends GetxController {
     await Future.delayed(
       const Duration(seconds: 1),
       () {
-        final isTutorialDone =
-            _localStorage.read(TLocalStorageKey.isTutorialDone);
         if (!isTutorialDone) {
           showTutorialCoachMark();
         }

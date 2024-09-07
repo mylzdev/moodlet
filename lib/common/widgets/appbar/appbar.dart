@@ -5,7 +5,6 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../../utils/device/device_utility.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
 class TAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -25,7 +24,8 @@ class TAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final List<Widget>? actions;
   final Widget? leadingWidget;
-  final bool showBackArrow, showBackground, centerTitle;
+  final bool showBackArrow, showBackground;
+  final bool? centerTitle;
   final Color? backgroundColor;
   final double spaceFromTop;
   final double? leadingWidth;
@@ -33,7 +33,6 @@ class TAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: TSizes.md,
@@ -49,19 +48,21 @@ class TAppbar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             // Background color
             ? IconButton(
-              onPressed: () => Get.back(),
-              icon: Icon(
-                Iconsax.arrow_left,
-                color: isDark ? TColors.grey : TColors.black,
-              ),
-            )
+                onPressed: () => Get.back(),
+                icon: Icon(
+                  Iconsax.arrow_left,
+                  color: isDark ? TColors.grey : TColors.black,
+                ),
+              )
             : leadingWidget,
         title: title,
         actions: actions,
+        backgroundColor:
+            backgroundColor, // Ensure backgroundColor is set correctly
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight());
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

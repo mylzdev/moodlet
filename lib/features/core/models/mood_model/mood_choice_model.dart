@@ -1,5 +1,11 @@
 import '../../../../utils/constants/image_strings.dart';
 
+const String great = 'Great';
+const String good = 'Good';
+const String okay = 'Okay';
+const String poor = 'Poor';
+const String bad = 'Bad';
+
 class MoodChoiceModel {
   final String moodImage;
   final String moodText;
@@ -7,19 +13,19 @@ class MoodChoiceModel {
   MoodChoiceModel(this.moodImage, this.moodText);
 
   static List<MoodChoiceModel> defaultMood = [
-    MoodChoiceModel(TImages.defaultGreat, 'Great'),
-    MoodChoiceModel(TImages.defaultGood, 'Good'),
-    MoodChoiceModel(TImages.defaultOkay, 'Okay'),
-    MoodChoiceModel(TImages.defaultPoor, 'Poor'),
-    MoodChoiceModel(TImages.defaultBad, 'Bad'),
+    MoodChoiceModel(TImages.defaultGreat, great),
+    MoodChoiceModel(TImages.defaultGood, good),
+    MoodChoiceModel(TImages.defaultOkay, okay),
+    MoodChoiceModel(TImages.defaultPoor, poor),
+    MoodChoiceModel(TImages.defaultBad, bad),
   ];
 
   static List<MoodChoiceModel> premiumMoods = [
     MoodChoiceModel(TImages.simpleGreat, 'Great'),
-    MoodChoiceModel(TImages.simpleGood, 'Good'),
-    MoodChoiceModel(TImages.simpleOkay, 'Okay'),
-    MoodChoiceModel(TImages.simplePoor, 'Poor'),
-    MoodChoiceModel(TImages.simpleBad, 'Bad'),
+    MoodChoiceModel(TImages.simpleGood, good),
+    MoodChoiceModel(TImages.simpleOkay, okay),
+    MoodChoiceModel(TImages.simplePoor, poor),
+    MoodChoiceModel(TImages.simpleBad, bad),
   ];
 
   static List<List<MoodChoiceModel>> moods = [

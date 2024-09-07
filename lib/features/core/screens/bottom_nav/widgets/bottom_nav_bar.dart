@@ -9,14 +9,9 @@ import '../../../controllers/navigation_controller.dart';
 import '../../../controllers/tutorial_controller.dart';
 
 class TBottomNavBar extends StatelessWidget {
-  const TBottomNavBar({
-    super.key,
-    required this.navigationController,
-    required this.tutorialController,
-  });
+  const TBottomNavBar({super.key, required this.navigationController});
 
   final NavigationController navigationController;
-  final TutorialController tutorialController;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +27,7 @@ class TBottomNavBar extends StatelessWidget {
           // Home
           SalomonBottomBarItem(
             icon: Icon(
-              key: tutorialController.entriesKey,
+              key: TutorialController.instance.entriesKey,
               Iconsax.home,
               color: isDark ? Colors.white : Colors.black,
             ),
@@ -46,7 +41,7 @@ class TBottomNavBar extends StatelessWidget {
           // Statistics
           SalomonBottomBarItem(
             icon: Icon(
-              key: tutorialController.statisticKey,
+              key: TutorialController.instance.statisticKey,
               Iconsax.activity,
               color: isDark ? Colors.white : Colors.black,
             ),
@@ -60,7 +55,7 @@ class TBottomNavBar extends StatelessWidget {
           // Statistics
           SalomonBottomBarItem(
             icon: Icon(
-              key: tutorialController.calendaryKey,
+              key: TutorialController.instance.calendaryKey,
               Iconsax.calendar,
               color: isDark ? Colors.white : Colors.black,
             ),
@@ -74,7 +69,7 @@ class TBottomNavBar extends StatelessWidget {
           // Statistics
           SalomonBottomBarItem(
             icon: Icon(
-              key: tutorialController.settingsKey,
+              key: TutorialController.instance.settingsKey,
               Iconsax.setting,
               color: isDark ? Colors.white : Colors.black,
             ),

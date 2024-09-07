@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
 import '../../../../common/widgets/appbar/appbar.dart';
-import '../../models/mood_model/mood_model.dart';
-import '../../controllers/mood_controller.dart';
-import 'widgets/mood_details_choices/mood_detail_choices.dart';
+import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/formatters/formatter.dart';
 import '../../../../utils/helpers/helper_functions.dart';
-import '../../../../utils/constants/colors.dart';
+import '../../controllers/mood_controller.dart';
 import '../../controllers/mood_details_controller.dart';
+import '../../models/mood_model/mood_model.dart';
 import 'widgets/mood_details_activities/mood_details_activities.dart';
+import 'widgets/mood_details_choices/mood_detail_choices.dart';
 import 'widgets/mood_details_emotion/mood_details_emotion.dart';
 import 'widgets/mood_details_note/mood_details_note.dart';
 import 'widgets/mood_details_photo/mood_details_photo.dart';
@@ -29,7 +30,8 @@ class MoodDetailsScreen extends StatelessWidget {
     final moodDetailsController = Get.put(MoodDetailsController());
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) => moodDetailsController.showDataNotSaveDialog(),
+      onPopInvokedWithResult: (didPop, _) =>
+          moodDetailsController.showDataNotSaveDialog(),
       child: Scaffold(
         appBar: TAppbar(
           leadingWidget: showBackArrow

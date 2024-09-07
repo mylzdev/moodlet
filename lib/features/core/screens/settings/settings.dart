@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:moodlet/common/widgets/appbar/appbar.dart';
-import '../../../../common/widgets/shapes/container/card_container.dart';
+
+import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/list_tile/settings_tile.dart';
+import '../../../../common/widgets/shapes/container/card_container.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/helpers/helper_functions.dart';
 import '../../controllers/settings_controllers/settings_controller.dart';
 import 'pages/setting_backup_data.dart';
 import 'pages/settings_contact_us.dart';
+import 'pages/settings_daily_reminder.dart';
 import 'pages/settings_display_mode.dart';
 import 'pages/settings_emoticons.dart';
 import 'pages/settings_passcode.dart';
 import 'pages/settings_photo_gallery.dart';
 import 'pages/settings_username.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/helpers/helper_functions.dart';
-import 'pages/settings_daily_reminder.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

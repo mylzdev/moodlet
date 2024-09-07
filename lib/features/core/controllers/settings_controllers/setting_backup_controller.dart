@@ -3,20 +3,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
 import '../../../../data/respositories/mood_repository.dart';
+import '../../../../data/services/auth_service.dart';
 import '../../../../data/services/backup_restore_service.dart';
 import '../../../../data/services/notification_service.dart';
-import '../mood_controller.dart';
-import '../statistic_controller.dart';
-import '../../../../utils/constants/local_storage_key.dart';
-import '../../../../utils/popups/loader.dart';
-import '../../../../data/services/auth_service.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/local_storage_key.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../../../utils/helpers/network_manager.dart';
+import '../../../../utils/popups/loader.dart';
 import '../../../../utils/popups/popups.dart';
+import '../mood_controller.dart';
+import '../statistic_controller.dart';
 
 class SettingBackupController extends GetxController {
   static SettingBackupController get instance => Get.find();
@@ -314,7 +315,7 @@ class SettingBackupController extends GetxController {
 
       isRestoring.value = true;
       await _backup.restoreImages();
-      MoodController.instance.fetchAllMoods();
+      await MoodController.instance.fetchAllMoods();
       StatisticController.instance.getMoodCountsByDate(DateTime.now());
 
       TPopup.successSnackbar(

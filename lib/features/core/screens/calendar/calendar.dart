@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
 import '../../../../common/widgets/appbar/appbar.dart';
-import '../../controllers/calendar_controller.dart';
 import '../../../../common/widgets/buttons/mood_filter_button.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../controllers/calendar_controller.dart';
 import '../../controllers/home_controller.dart';
 import '../../controllers/mood_controller.dart';
-import '../../../../utils/constants/sizes.dart';
 import 'widgets/calendar_month_year_picker.dart';
 import 'widgets/calendar_table.dart';
 
@@ -24,12 +25,13 @@ class CalendarScreen extends StatelessWidget {
             onPressed: () => homeController.isMoodFilterPressed.value =
                 !homeController.isMoodFilterPressed.value),
         actions: [
-          Obx(() =>
-            IconButton(
-              onPressed: () {
-                MoodController.instance.fetchAllMoods();
-              },
-              icon: MoodController.instance.isFetchingLoading.value ? const CircularProgressIndicator.adaptive() : const Icon(Iconsax.refresh),
+          Obx(
+            () => IconButton(
+              onPressed: () async =>
+                  await MoodController.instance.fetchAllMoods(),
+              icon: MoodController.instance.isFetchingLoading.value
+                  ? const CircularProgressIndicator.adaptive()
+                  : const Icon(Iconsax.refresh),
             ),
           ),
         ],

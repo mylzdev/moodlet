@@ -2,14 +2,16 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:moodlet/utils/logging/logger.dart';
-import '../models/mood_model/mood_model.dart';
+import 'package:moodlet/features/core/models/mood_model/mood_choice_model.dart';
+
 import '../../../data/respositories/mood_repository.dart';
-import '../../../utils/constants/text_strings.dart';
-import '../../../utils/popups/popups.dart';
 import '../../../utils/constants/local_storage_key.dart';
 import '../../../utils/constants/sizes.dart';
+import '../../../utils/constants/text_strings.dart';
 import '../../../utils/formatters/formatter.dart';
+import '../../../utils/logging/logger.dart';
+import '../../../utils/popups/popups.dart';
+import '../models/mood_model/mood_model.dart';
 
 class StatisticController extends GetxController {
   static StatisticController get instance => Get.find();
@@ -45,6 +47,7 @@ class StatisticController extends GetxController {
     }
   }
 
+  /// Opens a dialog to select a month and year using a scrollable picker.
   Future<void> showMonthYearPicker() async {
     // Get the months difference since app installation until today
     int monthsDifference = getMonthsDifference(firstDay, DateTime.now());
@@ -119,20 +122,21 @@ class StatisticController extends GetxController {
     );
   }
 
+  /// Calculate the total difference in months between two dates.
   int getMonthsDifference(DateTime startDate, DateTime endDate) {
     return (endDate.year - startDate.year) * 12 +
         endDate.month -
         startDate.month;
   }
 
+  /// Fetches mood data for the given month and maps it to chart spots.
   Future<List<FlSpot>> getMoodSpotsForMonth(DateTime selectedMonth) async {
     final moodData = await _moodRepository.fetchMoodsForMonth(selectedMonth);
 
     bool isCurrentMonth = selectedMonth.month == DateTime.now().month;
     int totalDays = isCurrentMonth
         ? DateTime.now().day
-        : DateTime(selectedMonth.year, selectedMonth.month + 1, 0)
-            .day;
+        : DateTime(selectedMonth.year, selectedMonth.month + 1, 0).day;
     Map<int, double> dailyMoodValues = {};
 
     for (var mood in moodData) {
@@ -148,17 +152,18 @@ class StatisticController extends GetxController {
     });
   }
 
+  /// Convert a mood title into a corresponding numeric value.
   double getMoodValue(String moodTitle) {
-    switch (moodTitle.toLowerCase()) {
-      case 'bad':
+    switch (moodTitle) {
+      case bad:
         return 1;
-      case 'poor':
+      case poor:
         return 2;
-      case 'okay':
+      case okay:
         return 3;
-      case 'good':
+      case good:
         return 4;
-      case 'great':
+      case great:
         return 5;
       default:
         return 0;

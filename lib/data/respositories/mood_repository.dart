@@ -1,11 +1,17 @@
 import 'dart:convert';
-import 'package:get/get.dart';
-import '../../features/core/models/mood_model/mood_choice_model.dart';
-import '../../utils/logging/logger.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
-import '../../features/core/models/mood_model/mood_model.dart';
 
+import 'package:get/get.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../../features/core/models/mood_model/mood_choice_model.dart';
+import '../../features/core/models/mood_model/mood_model.dart';
+import '../../utils/logging/logger.dart';
+
+/// [MoodRepository] is a service class that manages the mood-related data
+/// for the [Moodlet] app using the [sqflite] package for local storage.
+/// It handles CRUD operations such as adding, updating, deleting,
+/// and fetching moods, as well as managing related data like images and favorites.
 class MoodRepository extends GetxService {
   static MoodRepository get instance => Get.find();
 

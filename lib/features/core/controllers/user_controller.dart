@@ -4,15 +4,16 @@ import 'package:flutter_screen_lock/flutter_screen_lock.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:moodlet/features/core/screens/mood/mood.dart';
+
 import '../../../data/services/notification_service.dart';
-import 'settings_controllers/settings_controller.dart';
-import '../screens/bottom_nav/navigation_menu.dart';
-import '../screens/on_board/on_boarding.dart';
 import '../../../utils/constants/local_storage_key.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/logging/logger.dart';
 import '../../../utils/popups/popups.dart';
+import '../screens/bottom_nav/navigation_menu.dart';
+import '../screens/mood/mood.dart';
+import '../screens/on_board/on_boarding.dart';
+import 'settings_controllers/settings_controller.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
@@ -32,6 +33,7 @@ class UserController extends GetxController {
     screenRedirect();
   }
 
+  /// Redirects to appropriate screen based on user state and settings.
   screenRedirect() async {
     final user = _localStorage.read(TLocalStorageKey.username);
     if (user == null || user == '') {
@@ -44,6 +46,7 @@ class UserController extends GetxController {
     }
   }
 
+  /// Handles user signup and navigation after success.
   signup() async {
     try {
       if (!userNameFormKey.currentState!.validate()) return;
@@ -58,6 +61,7 @@ class UserController extends GetxController {
     }
   }
 
+  /// Changes the username and updates local storage.
   changeUsername() {
     try {
       if (!userNameFormKey.currentState!.validate()) return;
@@ -76,6 +80,7 @@ class UserController extends GetxController {
     }
   }
 
+  /// Triggers screen lock and biometric authentication if activated.
   authenticateUser() async {
     await screenLock(
       context: Get.context!,
@@ -100,9 +105,11 @@ class UserController extends GetxController {
     );
   }
 
+  /// Checks if the device can authenticate using biometrics.
   Future<bool> canAuthenticate() async =>
       await _auth.canCheckBiometrics || await _auth.isDeviceSupported();
 
+  /// Attempts to authenticate the user via biometrics.
   Future<bool> biometricAuth() async {
     try {
       if (!await canAuthenticate()) return false;
